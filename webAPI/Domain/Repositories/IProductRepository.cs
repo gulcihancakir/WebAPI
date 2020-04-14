@@ -9,5 +9,7 @@ namespace webAPI.Domain.Repositories
     public interface IProductRepository
     {
         Task<IEnumerable<Product>> ListAsync();
+
+
     }
 }

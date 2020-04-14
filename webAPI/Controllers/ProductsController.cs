@@ -26,7 +26,7 @@ namespace webAPI.Controllers
 
         }
         [HttpGet]
-        public async Task<IEnumerable<Product>> ListAsync()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
             var products = await _productService.ListAsync();
 

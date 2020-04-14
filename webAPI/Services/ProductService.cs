@@ -17,9 +17,12 @@ namespace webAPI.Services
             _productRepository = productRepository;
         }
 
+       
         public async Task<IEnumerable<Product>> ListAsync()
         {
             return await _productRepository.ListAsync();
         }
+
+
     }
 }

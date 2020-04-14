@@ -20,5 +20,7 @@ namespace webAPI.Persistance.Repositories
             return await _context.Products.Include(p => p.Category)
                                           .ToListAsync();
         }
+
+       
     }
 }
