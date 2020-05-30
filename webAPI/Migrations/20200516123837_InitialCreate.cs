@@ -2,7 +2,7 @@
 
 namespace webAPI.Migrations
 {
-    public partial class InitiallCreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,11 +25,11 @@ namespace webAPI.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Context = table.Column<string>(nullable: true),
-                    Price = table.Column<int>(nullable: false),
-                    new_Price = table.Column<int>(nullable: false),
-                    Images = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    Context = table.Column<string>(maxLength: 500, nullable: false),
+                    Price = table.Column<string>(maxLength: 50, nullable: false),
+                    new_Price = table.Column<string>(maxLength: 50, nullable: false),
+                    Images = table.Column<string>(maxLength: 100, nullable: false),
                     CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -46,12 +46,17 @@ namespace webAPI.Migrations
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { 100, "Fruits and Vegetables" });
-
-            migrationBuilder.InsertData(
-                table: "Categories",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 101, "Dairy" });
+                values: new object[,]
+                {
+                    { 102, "Şampuan" },
+                    { 103, "Saç Kremi" },
+                    { 104, "2'si 1 Arada Ürün" },
+                    { 105, "Şekillendirici" },
+                    { 106, "Maske" },
+                    { 107, "Serum" },
+                    { 108, "Durulanmayan Bakım Ürünleri" },
+                    { 109, "Saç Maskarası" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",

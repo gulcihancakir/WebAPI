@@ -35,7 +35,7 @@ namespace webAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddDbContext<AppDbContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("webAPI"));
+                options.UseSqlServer(Configuration.GetConnectionString("HuncaLife"));
             });
 
 

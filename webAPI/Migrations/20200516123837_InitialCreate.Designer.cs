@@ -9,8 +9,8 @@ using webAPI.Persistance.Contexts;
 namespace webAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200330200715_Migration4")]
-    partial class Migration4
+    [Migration("20200516123837_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,48 @@ namespace webAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 102,
+                            Name = "Şampuan"
+                        },
+                        new
+                        {
+                            Id = 103,
+                            Name = "Saç Kremi"
+                        },
+                        new
+                        {
+                            Id = 104,
+                            Name = "2'si 1 Arada Ürün"
+                        },
+                        new
+                        {
+                            Id = 105,
+                            Name = "Şekillendirici"
+                        },
+                        new
+                        {
+                            Id = 106,
+                            Name = "Maske"
+                        },
+                        new
+                        {
+                            Id = 107,
+                            Name = "Serum"
+                        },
+                        new
+                        {
+                            Id = 108,
+                            Name = "Durulanmayan Bakım Ürünleri"
+                        },
+                        new
+                        {
+                            Id = 109,
+                            Name = "Saç Maskarası"
+                        });
                 });
 
             modelBuilder.Entity("webAPI.Domain.Models.Product", b =>

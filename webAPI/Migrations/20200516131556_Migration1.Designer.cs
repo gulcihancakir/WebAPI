@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using webAPI.Persistance.Contexts;
 
 namespace webAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200516131556_Migration1")]
+    partial class Migration1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -106,10 +108,6 @@ namespace webAPI.Migrations
                         .HasColumnType("float")
                         .HasMaxLength(50);
 
-                    b.Property<int>("StockCount")
-                        .HasColumnType("int")
-                        .HasMaxLength(50);
-
                     b.Property<double>("new_Price")
                         .HasColumnType("float")
                         .HasMaxLength(50);
@@ -129,7 +127,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27691_3.png",
                             Name = "Hair Specialist Argan Yağlı Şampuan 350 ml",
                             Price = 50.0,
-                            StockCount = 20,
                             new_Price = 27.989999999999998
                         },
                         new
@@ -140,7 +137,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27620_3.png",
                             Name = "HL Nature Zeytinyağlı Şampuan 500ml",
                             Price = 50.0,
-                            StockCount = 20,
                             new_Price = 22.989999999999998
                         },
                         new
@@ -151,7 +147,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27673_3.png",
                             Name = "Huncalife Nature Isırgan Otlu Şampuan 500 ml",
                             Price = 50.0,
-                            StockCount = 20,
                             new_Price = 28.989999999999998
                         },
                         new
@@ -162,7 +157,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27580_3.png",
                             Name = "Huncalife Nature Sarımsaklı Şampuan 500 ml",
                             Price = 50.0,
-                            StockCount = 20,
                             new_Price = 29.989999999999998
                         },
                         new
@@ -173,7 +167,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27518_3.png",
                             Name = "Nature Ardıç Şampuan 400 ml",
                             Price = 60.0,
-                            StockCount = 20,
                             new_Price = 32.990000000000002
                         },
                         new
@@ -184,7 +177,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27527_3.png",
                             Name = "Nature At Kestanesi Saç ve Vücut Şampuanı 350 ml",
                             Price = 45.0,
-                            StockCount = 20,
                             new_Price = 21.989999999999998
                         },
                         new
@@ -195,7 +187,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27530_3.png",
                             Name = "Nature Aynısefa Saç ve Vücut Şampuanı 350 ml",
                             Price = 45.0,
-                            StockCount = 20,
                             new_Price = 29.989999999999998
                         },
                         new
@@ -206,7 +197,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27516_3.png",
                             Name = "Nature Çamur Şampuan 400 ml",
                             Price = 60.0,
-                            StockCount = 20,
                             new_Price = 32.990000000000002
                         },
                         new
@@ -217,7 +207,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27525_3.png",
                             Name = "Nature Çay Ağacı Saç ve Vücut Şampuanı 350 ml ",
                             Price = 45.0,
-                            StockCount = 20,
                             new_Price = 23.989999999999998
                         },
                         new
@@ -228,7 +217,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27528_3.png",
                             Name = "Nature Keratin Complex Şampuan 350 ml",
                             Price = 50.0,
-                            StockCount = 20,
                             new_Price = 27.989999999999998
                         },
                         new
@@ -239,7 +227,6 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27529_3.png",
                             Name = "Nature Siyah Sarımsaklı Şampuan 350 ml",
                             Price = 50.0,
-                            StockCount = 20,
                             new_Price = 34.990000000000002
                         },
                         new
@@ -250,77 +237,8 @@ namespace webAPI.Migrations
                             Images = "https://tr.huncalife.com/Assets/Images/Products/27517_3.png",
                             Name = "Nature Volkan Şampuan 400 ml",
                             Price = 60.0,
-                            StockCount = 20,
                             new_Price = 32.990000000000002
                         });
-                });
-
-            modelBuilder.Entity("webAPI.Domain.Models.Sepet", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Count")
-                        .HasColumnType("int")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Images")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float")
-                        .HasMaxLength(50);
-
-                    b.Property<double>("new_Price")
-                        .HasColumnType("float")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Sepet");
-                });
-
-            modelBuilder.Entity("webAPI.Domain.Models.Siparis", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Count")
-                        .HasColumnType("int")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Images")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float")
-                        .HasMaxLength(50);
-
-                    b.Property<double>("new_Price")
-                        .HasColumnType("float")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Siparis");
                 });
 
             modelBuilder.Entity("webAPI.Domain.Models.Product", b =>

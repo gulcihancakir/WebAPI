@@ -5,21 +5,13 @@ using System.Threading.Tasks;
 
 namespace webAPI.Domain.Models
 {
-    public class Product
+    public class Siparis
     {
         public int Id { get; set; }
+        public string Images { get; set; }
         public string Name { get; set; }
-        public string Context { get; set; }
+        public int Count { get; set; }
         public double Price { get; set; }
         public double new_Price { get; set; }
-
-        public string Images { get; set; }
-
-        public int StockCount { get; set; }
-        public int CategoryId { get; set; }
-
-        public Category Category { get; set; }
-     
-
     }
 }
