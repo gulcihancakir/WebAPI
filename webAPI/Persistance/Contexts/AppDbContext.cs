@@ -13,7 +13,9 @@ namespace webAPI.Persistance.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Sepet> Sepet { get; set; } 
         public DbSet<Siparis> Siparis { get; set; }
-        
+        public DbSet<Signup> Signup { get; set; }
+        public DbSet<Login> Login { get; set; }
+
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -89,9 +91,29 @@ namespace webAPI.Persistance.Contexts
             builder.Entity<Siparis>().Property(p => p.Count).IsRequired().HasMaxLength(50);
             builder.Entity<Siparis>().Property(p => p.Images).IsRequired().HasMaxLength(100);
 
+            builder.Entity<Signup>().ToTable("Signup");
+            builder.Entity<Signup>().HasKey(p => p.Id);
+            builder.Entity<Signup>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Signup>().Property(p => p.Name).IsRequired().HasMaxLength(100);
+            builder.Entity<Signup>().Property(p => p.Surname).IsRequired().HasMaxLength(100);
+            builder.Entity<Signup>().Property(p => p.Phone_Number).IsRequired().HasMaxLength(11);
+            builder.Entity<Signup>().Property(p => p.Adress).IsRequired().HasMaxLength(400);
+            builder.Entity<Signup>().Property(p => p.Email).IsRequired().HasMaxLength(400);
+
+            builder.Entity<Login>().ToTable("Login");
+            builder.Entity<Login>().HasKey(p => p.Id);
+            builder.Entity<Login>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Login>().Property(p => p.Email).IsRequired().HasMaxLength(100);
+            builder.Entity<Login>().Property(p => p.Parola).IsRequired().HasMaxLength(100);
+
+
+
+
+
 
 
 
         }
+
     }
 }
